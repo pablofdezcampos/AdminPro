@@ -5,7 +5,7 @@ import { ProgressComponent } from './progress/progress.component';
 import { Graphic1Component } from './graphic1/graphic1.component';
 import { PagesComponent } from './pages.component';
 import { ComponentsModule } from '../components/components.module';
-import { AppRoutingModule } from '../app-routing.module';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -19,7 +19,7 @@ import { AppRoutingModule } from '../app-routing.module';
   imports: [
     CommonModule,
     ComponentsModule,
-    AppRoutingModule
+    RouterModule
   ],
   exports : [
     DashboardComponent,
