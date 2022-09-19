@@ -4,7 +4,6 @@ import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProgressComponent } from './progress/progress.component';
 import { Graphic1Component } from './graphic1/graphic1.component';
-
 const routes: Routes = [
   {
     //To make nested routed, you have to fix in path the parent route
