@@ -8,7 +8,8 @@ import { AuthRoutingModule } from './auth/auth.routing';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 const routes: Routes = [
-  {path: '**', component: PagenotfoundComponent},
+  {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
+  {path: '**', component: PagenotfoundComponent}
 ]
 
 @NgModule({
