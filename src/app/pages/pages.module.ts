@@ -6,6 +6,7 @@ import { Graphic1Component } from './graphic1/graphic1.component';
 import { PagesComponent } from './pages.component';
 import { ComponentsModule } from '../components/components.module';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -17,6 +18,7 @@ import { RouterModule } from '@angular/router';
     PagesComponent
   ],
   imports: [
+    FormsModule,
     CommonModule,
     ComponentsModule,
     RouterModule
