@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
-import { NgChartsModule } from 'ng2-charts';
-
 import { SharedModule } from '../shared/shared.module';
 import { ComponentsModule } from '../components/components.module';
 
@@ -12,6 +10,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProgressComponent } from './progress/progress.component';
 import { Graphic1Component } from './graphic1/graphic1.component';
 import { PagesComponent } from './pages.component';
+import { DonaComponent } from '../components/dona/dona.component';
 
 
 @NgModule({
@@ -26,8 +25,7 @@ import { PagesComponent } from './pages.component';
     CommonModule,
     SharedModule,
     RouterModule,
-    ComponentsModule,
-    NgChartsModule
+    ComponentsModule
   ],
   exports : [
     DashboardComponent,

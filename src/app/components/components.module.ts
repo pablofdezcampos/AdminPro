@@ -3,19 +3,24 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { IncreasingComponent } from './increasing/increasing.component';
+import { DonaComponent } from './dona/dona.component';
+import { NgChartsModule } from 'ng2-charts';
 
 
 
 @NgModule({
   declarations: [
-    IncreasingComponent
+    IncreasingComponent,
+    DonaComponent
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    NgChartsModule
   ],
   exports: [
-    IncreasingComponent
+    IncreasingComponent,
+    DonaComponent
   ]
 })
 export class ComponentsModule { }
