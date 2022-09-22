@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SettingsService } from '../services/settings.service';
 
 declare function customInitFunctions(): void;
+declare function customSideBar(): void;
 
 @Component({
   selector: 'app-pages',

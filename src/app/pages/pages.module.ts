@@ -12,6 +12,8 @@ import { Graphic1Component } from './graphic1/graphic1.component';
 import { PagesComponent } from './pages.component';
 import { DonaComponent } from '../components/dona/dona.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { PromiseComponent } from './promise/promise.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
     ProgressComponent,
     Graphic1Component,
     PagesComponent,
-    AccountSettingsComponent
+    AccountSettingsComponent,
+    PromiseComponent,
+    RxjsComponent
   ],
   imports: [
     FormsModule,
