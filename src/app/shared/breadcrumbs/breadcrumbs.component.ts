@@ -17,7 +17,7 @@ export class BreadcrumbsComponent implements OnDestroy{
     this.titleSub$ = this.getArgumentsTitle()
       .subscribe(({title}) => { //Desestructuration of the argument, we are passing the value of the map
         this.title = title;
-        document.title = `AdminPro - ${title}`; //The title on the window
+        document.title = `AdminPro - ${title}`; //The title on the window1
     });
    }
 

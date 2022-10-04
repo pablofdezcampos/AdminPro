@@ -7,11 +7,13 @@ import { Graphic1Component } from './graphic1/graphic1.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { PromiseComponent } from './promise/promise.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
+import { AuthGuard } from '../guards/auth.guard';
 const routes: Routes = [
   {
     //To make nested routed, you have to fix in path the parent route
     path: 'dashboard',
     component: PagesComponent,
+    canActivate: [AuthGuard],
     children: [
       {path: '', component: DashboardComponent, data: {title: 'Dashboard'} },
       {path: 'progress', component: ProgressComponent, data: {title: 'Progress'} },
