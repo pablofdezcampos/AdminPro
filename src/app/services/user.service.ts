@@ -9,6 +9,8 @@ import { environment } from 'src/environments/environment';
 import { LoginForm } from '../interfaces/login-form.interface';
 import { RegisterForm } from '../interfaces/register-form.interface';
 
+import { User } from '../models/user.model';
+
 const base_url = environment.base_url;
 declare const google: any;
 
@@ -17,6 +19,8 @@ declare const google: any;
 })
 export class UserService {
 
+  public user?: User;
+
   constructor(
               private http: HttpClient,
               private router: Router,
@@ -24,32 +28,32 @@ export class UserService {
               ) {
   }
 
-  logout(){
 
-    localStorage.removeItem('token');
-
-    google.accounts.id.revoke('pablobaloncestocvc@gmail.com', () => {
-      this.ngZone.run(() => {
-        this.router.navigateByUrl('/login');
-      })
-    })
+  get token(): string{
+    return localStorage.getItem('token') || '';
   }
 
+   get uid(): string{
+     return this.user!.uid || '';
+   }
+
   validateToken(): Observable<boolean>{
-    const token = localStorage.getItem('token') || '';
 
     return this.http.get(`${base_url}/login/renew`, {
       headers: {
-        'x-token': token
+        'x-token': this.token
       }
     }) //Refresh the token
     .pipe(
-      tap(
+      map(
         (resp: any) => {
+          const {name, email, img = '', google, role, uid} = resp.user;
+          this.user = new User(name, email, '', img, google, role, uid);
+
           localStorage.setItem('token', resp.token);
+          //Return true for the guard, if there is new token (the user is logged) and you can access to the dashboard
+          return true;
         }),
-        //Return true for the guard, if there is new token (the user is logged) and you can access to the dashboard
-        map(resp => true),
         //Catch the error and return false to protect the guard if the is not token
         catchError(err => of(false))
     )
@@ -66,6 +70,21 @@ export class UserService {
                     }
                  )
               );
+  }
+
+  //The arguments are the fields that are in the my profile section
+  updateUser(data: {name: string, email: string, role: string}){
+    //data = {
+    //  ...data,
+    //}
+
+    console.log(this.user);
+
+    return this.http.put(`${base_url}/users/${this.uid}`, data, {
+      headers: {
+        'x-token': this.token
+      }
+    })
   }
 
   login(formData: LoginForm){
@@ -88,6 +107,19 @@ export class UserService {
                   localStorage.setItem('token', resp.token);
                 }
               )
-            )
+            );
   }
+
+  logout(){
+
+    localStorage.removeItem('token');
+    this.router.navigateByUrl('/login');
+
+    google.accounts.id.revoke('pablobaloncestocvc@gmail.com', () => {
+      this.ngZone.run(() => {
+        this.router.navigateByUrl('/login');
+      })
+    });
+  }
+
 }

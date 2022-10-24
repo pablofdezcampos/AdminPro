@@ -8,6 +8,7 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { PromiseComponent } from './promise/promise.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { AuthGuard } from '../guards/auth.guard';
+import { ProfileComponent } from './profile/profile.component';
 const routes: Routes = [
   {
     //To make nested routed, you have to fix in path the parent route
@@ -21,6 +22,7 @@ const routes: Routes = [
       {path: 'account-settings', component: AccountSettingsComponent, data: {title: 'Account Settings'} },
       {path: 'promises', component: PromiseComponent, data: {title: 'Promises'} },
       {path: 'rxjs', component: RxjsComponent, data: {title: 'Rxjs'} },
+      {path: 'profile', component: ProfileComponent, data: {title: 'User Profile'} },
     ]
   },
 ];

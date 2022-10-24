@@ -9,7 +9,13 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class HeaderComponent {
 
-  constructor(private userService: UserService) { }
+  public imgUrl?: any;
+  public user: any;
+
+  constructor(private userService: UserService) {
+    this.imgUrl = userService.user?.getImage();
+    this.user = userService.user;
+   }
 
   logout(){
     this.userService.logout();

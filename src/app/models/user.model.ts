@@ -1,4 +1,6 @@
+import { environment } from "src/environments/environment"
 
+const base_url = environment.base_url;
 
 export class User{
 
@@ -11,5 +13,20 @@ export class User{
     public role?: string,
     public uid?: string
   ){}
+
+    getImage(){
+
+      //Img for google login
+      if(this.img?.includes('https')) {
+        return this.img;
+      }
+
+      //Img for user login
+      if(!this.img){
+        return `${base_url}/upload/users/no-image`;
+      } else {
+        return `${base_url}/upload/users/${this.img}`;
+      }
+    }
 
 }

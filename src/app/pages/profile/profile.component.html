@@ -1,0 +1,67 @@
+<div class="row">
+
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">User Profile</h4>
+        <h6 class="card-subtitle">Settings</h6>
+
+        <form class="form p-t-20" [formGroup]="profileForm" (ngSubmit)="updateProfile()">
+
+          <div class="form-group">
+            <label for="exampleInputName2">User Name</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="exampleInputName2" placeholder="Username"
+                formControlName="name">
+              <div class="input-group-addon"><i class="ti-user"></i></div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputEmail2">Email address</label>
+            <div class="input-group">
+              <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email"
+                formControlName="email">
+              <div class="input-group-addon"><i class="ti-email"></i></div>
+            </div>
+          </div>
+
+          <div class="text-left">
+            <button type="submit" class="btn btn-success bi bi-save" [disabled]="profileForm.invalid">
+              Save changes
+              <i class="fa fa-save"></i>
+            </button>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Avatar</h4>
+        <h6 class="card-subtitle">User Image</h6>
+
+        <br>
+        <br>
+
+        <img src="">
+
+        <input type="file">
+
+        <br>
+        <br>
+
+        <button type="button" class="btn btn-success bi bi-save">
+          Save image
+          <i class="fa fa-save"></i>
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+</div>
